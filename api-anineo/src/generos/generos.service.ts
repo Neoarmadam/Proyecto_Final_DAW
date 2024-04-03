@@ -26,4 +26,16 @@ export class GenerosService {
     async remove(id: number): Promise<void> {
         await this.generoRepository.delete(id);
     }
+
+    async updateGenero(id: number, createGenero: CreateGeneroDto): Promise<Genero> {
+        const genero = await this.generoRepository.findOneBy({ id });
+    
+        if (!genero) {
+          throw new Error('Genero not found');
+        }else{
+            genero.nombre = createGenero.nombre;
+            genero.descripcion = createGenero.descripcion;
+            return this.generoRepository.save(genero);
+        }
+      }
 }
