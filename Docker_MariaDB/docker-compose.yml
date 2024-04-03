@@ -6,7 +6,7 @@ services:
     restart: no
     environment:
       MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: Pruebas
+      MYSQL_DATABASE: anineo
       MYSQL_USER: user
       MYSQL_PASSWORD: user
     ports:
