@@ -16,7 +16,7 @@ export class GenerosController {
     }
 
     @Get(":id")
-    getApiUsuario(@Param('id') id: number): any{
+    findOne(@Param('id') id: number): any{
         return this.generoService.findOne(id);
     }
 
