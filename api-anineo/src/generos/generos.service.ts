@@ -17,7 +17,7 @@ export class GenerosService {
             }
         })
         if(generoExist){
-            return new HttpException('El usuario ya existe', HttpStatus.CONFLICT);
+            return new HttpException('El genero ya existe', HttpStatus.CONFLICT);
         }else{
             return this.generoRepository.save(this.generoRepository.create(genero));
         }

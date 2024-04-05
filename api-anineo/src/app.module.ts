@@ -4,6 +4,7 @@ import { AppService } from './app.service';
 import { GenerosModule } from './generos/generos.module';
 import {TypeOrmModule} from '@nestjs/typeorm';
 import { Genero } from './generos/genero.entity';
+import { UsuariosModule } from './usuarios/usuarios.module';
 
 @Module({
   imports: [
@@ -17,7 +18,8 @@ import { Genero } from './generos/genero.entity';
       entities:[Genero],
       synchronize: true
     }),
-    GenerosModule
+    GenerosModule,
+    UsuariosModule
   ],
   controllers: [AppController],
   providers: [AppService],
