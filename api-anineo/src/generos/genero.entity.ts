@@ -1,4 +1,5 @@
-import { Entity, Column, PrimaryGeneratedColumn } from "typeorm";
+import { Entity, Column, PrimaryGeneratedColumn, OneToMany } from "typeorm";
+import { Anime } from "src/animes/anime.entity";
 
 @Entity({name: 'generos'})
 export class Genero{
@@ -10,4 +11,7 @@ export class Genero{
 
     @Column({nullable: true})
     descripcion: string
+
+    @OneToMany(() => Anime, anime => anime.genero)
+    anime: Anime[];
 }

@@ -6,6 +6,7 @@ import {TypeOrmModule} from '@nestjs/typeorm';
 import { Genero } from './generos/genero.entity';
 import { UsuariosModule } from './usuarios/usuarios.module';
 import { Usuario } from './usuarios/usuario.entity';
+import { AnimesModule } from './animes/animes.module';
 
 @Module({
   imports: [
@@ -20,7 +21,8 @@ import { Usuario } from './usuarios/usuario.entity';
       synchronize: true
     }),
     GenerosModule,
-    UsuariosModule
+    UsuariosModule,
+    AnimesModule
   ],
   controllers: [AppController],
   providers: [AppService],
