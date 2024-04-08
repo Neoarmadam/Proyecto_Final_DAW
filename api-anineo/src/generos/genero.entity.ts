@@ -11,7 +11,4 @@ export class Genero{
 
     @Column({nullable: true})
     descripcion: string
-
-    @OneToMany(() => Anime, anime => anime.genero)
-    anime: Anime[];
 }

@@ -23,8 +23,8 @@ export class AnimesController {
   }
 
   @Patch(':id')
-  update(@Param('id') id: string, @Body() updateAnimeDto: UpdateAnimeDto) {
-    return this.animesService.update(+id, updateAnimeDto);
+  update(@Param('id') id: string, @Body() createAnimeDto: CreateAnimeDto) {
+    return this.animesService.update(+id, createAnimeDto);
   }
 
   @Delete(':id')

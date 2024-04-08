@@ -1,26 +1,60 @@
-import { Injectable } from '@nestjs/common';
+import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { CreateAnimeDto } from './dto/create-anime.dto';
 import { UpdateAnimeDto } from './dto/update-anime.dto';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Anime } from './anime.entity';
+import { Repository } from 'typeorm';
 
 @Injectable()
 export class AnimesService {
-  create(createAnimeDto: CreateAnimeDto) {
-    return 'This action adds a new anime';
+  constructor(
+    @InjectRepository(Anime) private animeRepository: Repository<Anime>
+  ){}
+
+  async create(createAnimeDto: CreateAnimeDto) {
+    const animeExist= await this.animeRepository.findOne({
+      where: {
+        nombre: createAnimeDto.nombre
+      }
+    })
+    if(animeExist){
+      return new HttpException('El anime ya existe', HttpStatus.CONFLICT);
+    }else{
+      return this.animeRepository.save(this.animeRepository.create(createAnimeDto));
+    }
   }
 
   findAll() {
-    return `This action returns all animes`;
+    return this.animeRepository.find();
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} anime`;
+  async findOne(id: number) {
+    const animeExist= await this.animeRepository.findOneBy({ id });
+    if(animeExist){
+      return animeExist;
+    }else{
+      return new HttpException('Anime inexistente', HttpStatus.NOT_FOUND);
+    }
   }
 
-  update(id: number, updateAnimeDto: UpdateAnimeDto) {
-    return `This action updates a #${id} anime`;
+  async update(id: number, createAnimeDto: CreateAnimeDto) {
+    const anime = await this.animeRepository.findOneBy({ id });
+    if (!anime) {
+      throw new Error('anime not found');
+    }else{
+      anime.nombre = createAnimeDto.nombre;
+      anime.descripcion = createAnimeDto.descripcion;
+      return this.animeRepository.save(anime);
+    }
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} anime`;
+  async remove(id: number) {
+    const animeExist= await this.animeRepository.findOneBy({ id });
+    if(!animeExist){
+      return new HttpException('Anime Inexistente', HttpStatus.NOT_FOUND);
+    }else{
+      return this.animeRepository.delete(id);
+    }
   }
+  
 }

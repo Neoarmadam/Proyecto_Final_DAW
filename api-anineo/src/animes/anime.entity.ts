@@ -21,6 +21,6 @@ export class Anime {
     @Column()
     imagen: string
 
-    @ManyToOne(() => Genero, genero => genero.anime)
-    genero: Genero;
+    @Column()
+    genero: number;
 }
