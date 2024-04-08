@@ -12,7 +12,7 @@ export class UsuariosService {
         @InjectRepository(Usuario) private usuarioRepository: Repository<Usuario>
     ){}
 
-    async createusuario(usuario: CreateUsuarioDto){
+    async createUsuario(usuario: CreateUsuarioDto){
         const usuarioExist= await this.usuarioRepository.findOne({
             where: {
                 nombre: usuario.nombre

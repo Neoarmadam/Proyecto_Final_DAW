@@ -1,7 +1,6 @@
 import { Controller, Post, Body, Get, Param, Delete, Put } from '@nestjs/common';
 import { CreateGeneroDto } from './dto/create_genero.dto';
 import { GenerosService } from './generos.service';
-import { Genero } from './genero.entity';
 
 @Controller('generos')
 export class GenerosController {

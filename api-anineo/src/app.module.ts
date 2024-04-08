@@ -5,6 +5,7 @@ import { GenerosModule } from './generos/generos.module';
 import {TypeOrmModule} from '@nestjs/typeorm';
 import { Genero } from './generos/genero.entity';
 import { UsuariosModule } from './usuarios/usuarios.module';
+import { Usuario } from './usuarios/usuario.entity';
 
 @Module({
   imports: [
@@ -15,7 +16,7 @@ import { UsuariosModule } from './usuarios/usuarios.module';
       username: 'root',
       password: 'root',
       database: 'anineo',
-      entities:[Genero],
+      entities:[Genero, Usuario],
       synchronize: true
     }),
     GenerosModule,
