@@ -1,5 +1,4 @@
-import { Entity, Column, PrimaryGeneratedColumn, ManyToOne } from "typeorm";
-import { Genero } from "src/generos/genero.entity";
+import { Entity, Column, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity({name: 'animes'})
 export class Anime {

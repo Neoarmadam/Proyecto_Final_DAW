@@ -15,6 +15,10 @@ import { Usuario } from './usuarios/usuario.entity';
 import { AnimesModule } from './animes/animes.module';
 import { Anime } from './animes/anime.entity';
 
+//Comentario
+import { ComentariosModule } from './comentarios/comentarios.module';
+import { Comentario } from './comentarios/entities/comentario.entity';
+
 @Module({
   imports: [
     TypeOrmModule.forRoot({
@@ -24,12 +28,13 @@ import { Anime } from './animes/anime.entity';
       username: 'root',
       password: 'root',
       database: 'anineo',
-      entities:[Genero, Usuario, Anime],
+      entities:[Genero, Usuario, Anime, Comentario],
       synchronize: true
     }),
     GenerosModule,
     UsuariosModule,
-    AnimesModule
+    AnimesModule,
+    ComentariosModule
   ],
   controllers: [AppController],
   providers: [AppService],
