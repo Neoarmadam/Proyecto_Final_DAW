@@ -15,6 +15,6 @@ export class AnimesService {
   }
 
   findGenero(genero:string) {
-    return this.http.get<any[]>(this.urlApi);
+    return this.http.get<any[]>(this.urlApi+"/genero/"+genero);
   }
 }

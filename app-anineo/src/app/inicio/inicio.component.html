@@ -2,6 +2,19 @@
 <div class="container py-5">
   <h1 class="bg-dark p-3 rounded text-white text-center">Listado de Todos los Animes</h1>
 
+  <!--Barra de busqueda y desplegable de generos-->
+  <div class="input-group mb-3">
+    <input type="text" class="form-control bg-dark text-white custom-placeholder" placeholder="Buscar juegos..." [(ngModel)]="filtrar" (input)="buscar()">
+    <div class="input-group-append">
+      <select class="form-select bg-dark text-white" [(ngModel)]="generoSeleccionado" (change)="filtrarGenero()">
+        <option value="0" selected>Todos</option>
+        @for(genero of generos; track $index){
+          <option [value]="genero.id">{{ genero.nombre }}</option>
+        }  
+      </select>
+    </div>
+  </div>
+
   <!--Impresion de cards con los datos de los Animes-->
   <div class="container mt-5">
     <div class="row">
