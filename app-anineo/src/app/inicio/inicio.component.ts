@@ -8,9 +8,9 @@ import { GenerosService } from '../generos.service';
   styleUrl: './inicio.component.css'
 })
 export class InicioComponent {
-  animes: any[]=[];
-  generos: any[]=[];
-  generoSeleccionado: string="0";
+  animes:any[]=[];
+  generos:any[]=[];
+  generoSeleccionado:string="0";
   
   constructor(
     private animeService:AnimesService,

@@ -31,4 +31,9 @@ export class AnimesController {
   remove(@Param('id') id: string) {
     return this.animesService.remove(+id);
   }
+
+  @Get('genero/:id')
+  findGenero(@Param('id') id: string) {
+    return this.animesService.findAnimesByGenero(+id);
+  }
 }

@@ -4,6 +4,7 @@ import { UpdateAnimeDto } from './dto/update-anime.dto';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Anime } from './anime.entity';
 import { Repository } from 'typeorm';
+import { Genero } from 'src/generos/genero.entity';
 
 @Injectable()
 export class AnimesService {
@@ -57,4 +58,11 @@ export class AnimesService {
     }
   }
   
+  async findAnimesByGenero(genreId: number): Promise<Anime[]> {
+    return this.animeRepository.find({
+      where: {
+        genero: genreId,
+      },
+    });
+  }
 }
