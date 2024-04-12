@@ -1,1 +1,20 @@
-/* You can add global styles to this file, and also import other style files */
+/*Mondongo estilos*/
+.mondongo {
+    width: 100px; 
+    height: 100px; 
+    background-image: url('assets/img/goku.webp');
+    background-size: cover;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    animation: swingMondongo 2s ease-in-out infinite alternate; /* Animación de balanceo */
+    z-index: -1;
+  }
+  @keyframes swingMondongo {
+    from {
+      transform: translate(-50%, -50%) rotate(-10deg); /* Rotación inicial */
+    }
+    to {
+      transform: translate(-50%, -50%) rotate(10deg); /* Rotación final */
+    }
+  }

@@ -8,13 +8,15 @@ import { FooterComponent } from './footer/footer.component';
 import { InicioComponent } from './inicio/inicio.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { MondongoComponent } from './mondongo/mondongo.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     FooterComponent,
-    InicioComponent
+    InicioComponent,
+    MondongoComponent
   ],
   imports: [
     BrowserModule,
