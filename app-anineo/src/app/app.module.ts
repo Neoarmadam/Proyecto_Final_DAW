@@ -9,6 +9,7 @@ import { InicioComponent } from './inicio/inicio.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { MondongoComponent } from './mondongo/mondongo.component';
+import { AnimeComponent } from './inicio/anime/anime.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { MondongoComponent } from './mondongo/mondongo.component';
     HeaderComponent,
     FooterComponent,
     InicioComponent,
-    MondongoComponent
+    MondongoComponent,
+    AnimeComponent
   ],
   imports: [
     BrowserModule,
