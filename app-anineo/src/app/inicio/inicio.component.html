@@ -1,5 +1,6 @@
 <br>
 <div class="container py-5">
+
   <h1 class="bg-dark p-3 rounded text-white text-center">Listado de Todos los Animes</h1>
 
   <!--Barra de busqueda y desplegable de generos-->
@@ -23,7 +24,6 @@
           <div class="card h-100">
             <div class="card-body d-flex flex-column justify-content-between">
               <div class="mb-4">
-             
                 <img src="{{anime.imagen}}" alt="{{ anime.nombre }}" class="img-fluid" width="120px" height="120px">
                 <h3><a routerLink="/inicio/anime" class="text-light">{{ anime.nombre }}</a></h3>
                 <p>{{ anime.descripcion }}</p>
@@ -34,4 +34,5 @@
       }
     </div>
   </div>
+
 </div>
