@@ -14,4 +14,12 @@ export class ComentariosService {
     return this.http.get<any[]>(this.urlApi+'/anime/'+anime);
   }
 
+  findPosAnime(anime:number) {
+    return this.http.get<any[]>(this.urlApi+'/pos/'+anime);
+  }
+
+  findNegAnime(anime:number) {
+    return this.http.get<any[]>(this.urlApi+'/neg/'+anime);
+  }
+
 }

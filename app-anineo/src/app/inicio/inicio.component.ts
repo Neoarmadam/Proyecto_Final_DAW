@@ -7,6 +7,7 @@ import { GenerosService } from '../generos.service';
   templateUrl: './inicio.component.html',
   styleUrl: './inicio.component.css'
 })
+
 export class InicioComponent {
   animes:any[]=[];
   generos:any[]=[];
