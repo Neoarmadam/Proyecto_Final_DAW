@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { AnimesService } from '../animes.service';
 import { ComentariosService } from '../comentarios.service';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Component({
   selector: 'app-anime',
@@ -19,7 +20,8 @@ export class AnimeComponent {
   constructor(
     private route: ActivatedRoute,
     private animeService:AnimesService,
-    private comentariosService:ComentariosService
+    private comentariosService:ComentariosService,
+    private http: HttpClient
   ) {
     this.route.params.subscribe((params: Params) => {
       this.animeId = params['id'];
@@ -57,5 +59,38 @@ export class AnimeComponent {
       this.positivos=response;
       console.log(this.positivos);
     });
+  }
+
+  comentario = {
+    anime: null,
+    usuario: '',
+    tipo: true,
+    comentario: ''
+  };
+
+  submitForm() {
+    const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+    this.comentario.anime = this.animeId;
+    this.http.post("http://localhost:3000/comentarios", this.comentario, { headers })
+      .subscribe(
+        response => {
+          console.log('Comentario enviado con éxito:', response);
+          this.limpiarFormulario();
+          this.findNegativos(this.animeId);
+          this.findPositivos(this.animeId);
+        },
+        error => {
+          console.error('Error al enviar el comentario:', error);
+        }
+      );
+  }
+
+  limpiarFormulario() {
+    this.comentario = {
+      anime: null,
+      usuario: '',
+      tipo: true,
+      comentario: ''
+    };
   }
 }
