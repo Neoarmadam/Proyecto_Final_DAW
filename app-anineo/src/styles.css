@@ -29,8 +29,6 @@ body {
 .card {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease;
-  
-  /*background-image: url('assets/img/backgraunde2.jpg');*/
   color: white;
   margin: 0 auto; /* Margen automático para centrar */
   text-align: center; /* Centrar el texto dentro del div */
