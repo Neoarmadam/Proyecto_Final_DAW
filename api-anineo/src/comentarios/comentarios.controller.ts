@@ -42,7 +42,7 @@ export class ComentariosController {
   }
 
   @Get('/anime/:id')
-  findAllAnime(@Param('id') id: string) {
-    return this.comentariosService.findAll();
+  findAllAnime(@Param('id') id: number) {
+    return this.comentariosService.findAllAnime(id);
   }
 }

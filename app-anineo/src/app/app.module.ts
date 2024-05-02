@@ -12,6 +12,7 @@ import { MondongoComponent } from './mondongo/mondongo.component';
 import { AcercadeComponent } from './acercade/acercade.component';
 import { CommonModule } from '@angular/common';
 import { AnimeComponent } from './anime/anime.component';
+import { CrearAnimesComponent } from './crear-animes/crear-animes.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { AnimeComponent } from './anime/anime.component';
     InicioComponent,
     MondongoComponent,
     AcercadeComponent,
-    AnimeComponent
+    AnimeComponent,
+    CrearAnimesComponent
   ],
   imports: [
     BrowserModule,

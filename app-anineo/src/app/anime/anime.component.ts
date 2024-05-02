@@ -78,6 +78,7 @@ export class AnimeComponent {
           this.limpiarFormulario();
           this.findNegativos(this.animeId);
           this.findPositivos(this.animeId);
+          this.findComentarios(this.animeId);
         },
         error => {
           console.error('Error al enviar el comentario:', error);
