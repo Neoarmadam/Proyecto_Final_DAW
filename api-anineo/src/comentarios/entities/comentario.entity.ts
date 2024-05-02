@@ -9,7 +9,7 @@ export class Comentario {
     anime: number
 
     @Column()
-    usuario: number
+    usuario: string
 
     @Column()
     tipo: boolean

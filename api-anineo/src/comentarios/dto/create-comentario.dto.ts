@@ -1,6 +1,6 @@
 export class CreateComentarioDto {
     anime: number
-    usuario: number
+    usuario: string
     tipo: boolean
     comentario: string
 }

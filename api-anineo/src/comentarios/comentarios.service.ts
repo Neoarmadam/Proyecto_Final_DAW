@@ -1,6 +1,5 @@
 import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { CreateComentarioDto } from './dto/create-comentario.dto';
-import { UpdateComentarioDto } from './dto/update-comentario.dto';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Comentario } from './entities/comentario.entity';
 import { Repository } from 'typeorm';
@@ -69,5 +68,9 @@ export class ComentariosService {
     const result = await this.comentarioRepository.query(query, [animeId]);
     
     return parseInt(result[0].num_comentarios);
+  }
+
+  async findAllAnime(animeId: number) {
+    return await this.comentarioRepository.find({ where: { anime: animeId } });
   }
 }
