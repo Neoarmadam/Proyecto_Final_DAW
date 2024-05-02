@@ -1,6 +1,7 @@
 import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
 import { ComentariosService } from './comentarios.service';
 import { CreateComentarioDto } from './dto/create-comentario.dto';
+import { get } from 'http';
 
 @Controller('comentarios')
 export class ComentariosController {
@@ -29,5 +30,15 @@ export class ComentariosController {
   @Delete(':id')
   remove(@Param('id') id: string) {
     return this.comentariosService.remove(+id);
+  }
+
+  @Get('/pos/:id')
+  positivos(@Param('id') id: string){
+    return this.comentariosService.numPositivos(+id);
+  }
+
+  @Get('/neg/:id')
+  negativos(@Param('id') id: string){
+    return this.comentariosService.numNegativos(+id);
   }
 }

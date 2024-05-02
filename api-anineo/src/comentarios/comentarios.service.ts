@@ -46,4 +46,28 @@ export class ComentariosService {
       return this.comentarioRepository.delete(id);
     }
   }
+
+  async numPositivos(animeId:number): Promise<number> {
+    const query = `
+      SELECT COUNT(*) AS num_comentarios
+      FROM comentarios
+      WHERE tipo = 1
+      AND anime = ?
+    `;
+    const result = await this.comentarioRepository.query(query, [animeId]);
+    
+    return parseInt(result[0].num_comentarios);
+  }
+
+  async numNegativos(animeId:number): Promise<number> {
+    const query = `
+      SELECT COUNT(*) AS num_comentarios
+      FROM comentarios
+      WHERE tipo = 0
+      AND anime = ?
+    `;
+    const result = await this.comentarioRepository.query(query, [animeId]);
+    
+    return parseInt(result[0].num_comentarios);
+  }
 }
