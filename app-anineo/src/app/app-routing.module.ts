@@ -8,7 +8,7 @@ const routes: Routes = [
   { path: '', redirectTo: '/inicio', pathMatch: 'full' },
   { path: 'inicio', component: InicioComponent },
   { path: 'acercade', component: AcercadeComponent },
-  { path: 'anime', component: AnimeComponent }
+  { path: 'anime/:id', component: AnimeComponent }
 ];
 
 @NgModule({
