@@ -6,5 +6,6 @@ import { Component } from '@angular/core';
   styleUrl: './anime.component.css'
 })
 export class AnimeComponent {
-
+  anime:any;
+  
 }
