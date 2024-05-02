@@ -10,6 +10,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { MondongoComponent } from './mondongo/mondongo.component';
 import { AcercadeComponent } from './acercade/acercade.component';
+import { CommonModule } from '@angular/common';
+import { AnimeComponent } from './anime/anime.component';
 
 @NgModule({
   declarations: [
@@ -18,13 +20,15 @@ import { AcercadeComponent } from './acercade/acercade.component';
     FooterComponent,
     InicioComponent,
     MondongoComponent,
-    AcercadeComponent
+    AcercadeComponent,
+    AnimeComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    CommonModule
   ],
   providers: [],
   bootstrap: [AppComponent]
