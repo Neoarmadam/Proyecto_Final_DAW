@@ -1,10 +1,8 @@
 import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { CreateAnimeDto } from './dto/create-anime.dto';
-import { UpdateAnimeDto } from './dto/update-anime.dto';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Anime } from './anime.entity';
 import { Repository } from 'typeorm';
-import { Genero } from 'src/generos/genero.entity';
 
 @Injectable()
 export class AnimesService {

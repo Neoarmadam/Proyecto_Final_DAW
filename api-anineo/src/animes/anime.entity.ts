@@ -1,5 +1,8 @@
 import { Entity, Column, PrimaryGeneratedColumn } from "typeorm";
 
+/**
+ * Entidad Anime
+ */
 @Entity({name: 'animes'})
 export class Anime {
     @PrimaryGeneratedColumn()
