@@ -16,6 +16,12 @@ export class AnimeComponent {
   comentarios:any[]=[];
   positivos:any;
   negativos:any;
+  comentario = {
+    anime: null,
+    usuario: '',
+    tipo: true,
+    comentario: ''
+  };
 
   constructor(
     private route: ActivatedRoute,
@@ -60,13 +66,6 @@ export class AnimeComponent {
       console.log(this.positivos);
     });
   }
-
-  comentario = {
-    anime: null,
-    usuario: '',
-    tipo: true,
-    comentario: ''
-  };
 
   submitForm() {
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });

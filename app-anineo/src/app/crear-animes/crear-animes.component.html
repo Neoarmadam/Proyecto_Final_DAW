@@ -8,7 +8,7 @@
             Crear Anime
           </div>
           <div class="card-body bg-dark">
-            <form>
+            <form (ngSubmit)="submitForm()">
               <div class="mb-3">
                 <label for="nombre" class="form-label">Nombre</label>
                 <input type="text" class="form-control" id="nombre" name="nombre" [(ngModel)]="nuevoAnime.nombre" required>
@@ -32,10 +32,9 @@
               <div class="mb-3">
                 <label for="genero" class="form-label">Género</label>
                 <select class="form-select" id="genero" name="genero" [(ngModel)]="nuevoAnime.genero" required>
-                  <option value="1">Acción</option>
-                  <option value="2">Aventura</option>
-                  <option value="3">Drama</option>
-                  <!-- Otros géneros -->
+                  @for(genero of generos; track $index){
+                    <option [value]="genero.id">{{genero.nombre}}</option>
+                  }
                 </select>
               </div>
               <button type="submit" class="btn btn-primary">Crear Anime</button>
