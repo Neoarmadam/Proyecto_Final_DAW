@@ -4,12 +4,21 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Anime } from './anime.entity';
 import { Repository } from 'typeorm';
 
+/**
+ * Servicio de la Entidad Anime.
+ */
 @Injectable()
 export class AnimesService {
+
   constructor(
     @InjectRepository(Anime) private animeRepository: Repository<Anime>
   ){}
 
+  /**
+   * Metodo que crea un anime en la base de datos.
+   * @param createAnimeDto 
+   * @returns 
+   */
   async create(createAnimeDto: CreateAnimeDto) {
     const animeExist= await this.animeRepository.findOne({
       where: {
@@ -23,10 +32,20 @@ export class AnimesService {
     }
   }
 
+  /**
+   * Metodo que devuelve todos los animes de la base de datos.
+   * @returns 
+   */
   findAll() {
     return this.animeRepository.find();
   }
 
+  /**
+   * Devuelve un anime en concreto de la base de datos que
+   * elegimos pasando su id.
+   * @param id
+   * @returns 
+   */
   async findOne(id: number) {
     const animeExist= await this.animeRepository.findOneBy({ id });
     if(animeExist){
@@ -36,6 +55,13 @@ export class AnimesService {
     }
   }
 
+  /**
+   * Metodo que actualiza los datos de un anime, dando los 
+   * datos nuevos y el id del anime que vamos a actualizar.
+   * @param id 
+   * @param createAnimeDto 
+   * @returns 
+   */
   async update(id: number, createAnimeDto: CreateAnimeDto) {
     const anime = await this.animeRepository.findOneBy({ id });
     if (!anime) {
@@ -47,6 +73,12 @@ export class AnimesService {
     }
   }
 
+  /**
+   * Metodo que elimina un anime de la base de datos pasando
+   * su id.
+   * @param id 
+   * @returns 
+   */
   async remove(id: number) {
     const animeExist= await this.animeRepository.findOneBy({ id });
     if(!animeExist){
@@ -56,6 +88,12 @@ export class AnimesService {
     }
   }
   
+  /**
+   * Devuelve los animes de la base de datos que sean del genero
+   * pasado por parametro.
+   * @param id 
+   * @returns 
+   */
   async findAnimesByGenero(genreId: number): Promise<Anime[]> {
     return this.animeRepository.find({
       where: {

@@ -4,12 +4,20 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { CreateGeneroDto } from './dto/create_genero.dto';
 
+/**
+ * Servicio de la entidad Genero.
+ */
 @Injectable()
 export class GenerosService {
     constructor(
         @InjectRepository(Genero) private generoRepository: Repository<Genero>
     ){}
 
+    /**
+     * Metodo que agrega a la base de datos un genero.
+     * @param genero 
+     * @returns 
+     */
     async createGenero(genero: CreateGeneroDto){
         const generoExist= await this.generoRepository.findOne({
             where: {
@@ -23,10 +31,19 @@ export class GenerosService {
         }
     }
 
+    /**
+     * Metodo que devuelve todos los generos de la base de datos.
+     * @returns 
+     */
     findAll(): Promise<Genero[]> {
         return this.generoRepository.find();
     }
 
+    /**
+     * Metodo que devuelve un genero pasando su Id.
+     * @param id 
+     * @returns 
+     */
     async findOne(id: number){
         const generoExist= await this.generoRepository.findOneBy({ id });
         if(generoExist){
@@ -36,6 +53,11 @@ export class GenerosService {
         }
     }
     
+    /**
+     * Metodo que elimina un genero de la base de datos pasando su Id.
+     * @param id 
+     * @returns 
+     */
     async remove(id: number){
         const generoExist= await this.generoRepository.findOneBy({ id });
         if(!generoExist){
@@ -45,6 +67,12 @@ export class GenerosService {
         }
     }
 
+    /**
+     * Metodo que modifica un genero pasando un Id.
+     * @param id 
+     * @param createGenero 
+     * @returns 
+     */
     async updateGenero(id: number, createGenero: CreateGeneroDto): Promise<Genero> {
         const genero = await this.generoRepository.findOneBy({ id });
     

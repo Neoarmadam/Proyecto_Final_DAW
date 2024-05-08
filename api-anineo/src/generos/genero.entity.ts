@@ -1,14 +1,26 @@
 import { Entity, Column, PrimaryGeneratedColumn, OneToMany } from "typeorm";
-import { Anime } from "src/animes/anime.entity";
 
+/**
+ * Entidad Genero
+ */
 @Entity({name: 'generos'})
 export class Genero{
+
+    /**
+     * Identificador Autonumerico.
+     */
     @PrimaryGeneratedColumn()
     id: number
 
+    /**
+     * Nombre del Genero.
+     */
     @Column({unique: true})
     nombre: string
 
+    /**
+     * Descripcion del Genero.
+     */
     @Column({nullable: true})
     descripcion: string
 }
