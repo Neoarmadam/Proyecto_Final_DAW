@@ -13,7 +13,7 @@ button {
     cursor: pointer;
 }
   
-  /* Cambio de color al pasar el mouse */
+/* Cambio de color al pasar el mouse */
 button:hover {
     background-color: palevioletred; /* Nuevo color */
 }
