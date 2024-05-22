@@ -1,8 +1,9 @@
-import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
+import { HttpException, HttpStatus, Injectable, UnauthorizedException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Usuario } from './usuario.entity';
 import { Repository } from 'typeorm';
 import { CreateUsuarioDto } from './dto/create_usuario.dto';
+import { LoginUsuarioDto } from './dto/login_usuario.dto';
 
 
 @Injectable()
@@ -37,4 +38,15 @@ export class UsuariosService {
             return new HttpException('usuario inexistente', HttpStatus.NOT_FOUND);
         }
     }
+
+    async loginUsuario(loginUsuarioDto: LoginUsuarioDto) {
+        const { correo, contraseña } = loginUsuarioDto;
+        const usuario = await this.usuarioRepository.findOne({
+          where: { correo, contraseña },
+        });
+        if (!usuario) {
+          throw new UnauthorizedException('Credenciales no validas');
+        }
+        return usuario;
+      }
 }
