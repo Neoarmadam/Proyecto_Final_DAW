@@ -36,7 +36,6 @@ export class InicioComponent {
     this.generosService.findAll().subscribe(response => {
       if (Array.isArray(response)) {
         this.generos = response;
-        console.log(this.generos);
       } else {
         console.error('Los datos recibidos no son un array:', response);
       }

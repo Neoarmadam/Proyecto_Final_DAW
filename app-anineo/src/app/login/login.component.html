@@ -4,14 +4,15 @@
     <div class="card" style="width: 24rem;">
         <div class="card-body bg-dark">
             <h5 class="card-title text-center mb-4">Iniciar Sesión</h5>
-            <form (ngSubmit)="submitForm()">
+            <form (ngSubmit)="onLogin()">
                 <div class="mb-3">
-                    <label for="email" class="form-label">Correo Electrónico</label>
-                    <input type="email" class="form-control" id="email" placeholder="correo@ejemplo.com" required>
+                    <label for="correo" class="form-label">Correo Electrónico</label>
+                    <input type="correo" class="form-control" id="correo" placeholder="correo@ejemplo.com" [(ngModel)]="correo" name="correo" required>
                 </div>
+
                 <div class="mb-3">
-                    <label for="password" class="form-label">Contraseña</label>
-                    <input type="password" class="form-control" id="password" placeholder="Contraseña" required>
+                    <label for="contraseña" class="form-label">Contraseña</label>
+                    <input type="contraseña" class="form-control" id="contraseña" placeholder="Contraseña" [(ngModel)]="contrase" name="contraseña" required>
                 </div>
                 <div class="d-grid">
                     <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
