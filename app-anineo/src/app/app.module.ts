@@ -14,6 +14,7 @@ import { CommonModule } from '@angular/common';
 import { AnimeComponent } from './anime/anime.component';
 import { CrearAnimesComponent } from './crear-animes/crear-animes.component';
 import { LoginComponent } from './login/login.component';
+import { CrearUsuarioComponent } from './crear-usuario/crear-usuario.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { LoginComponent } from './login/login.component';
     AcercadeComponent,
     AnimeComponent,
     CrearAnimesComponent,
-    LoginComponent
+    LoginComponent,
+    CrearUsuarioComponent
   ],
   imports: [
     BrowserModule,
