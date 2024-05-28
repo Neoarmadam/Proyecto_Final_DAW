@@ -17,7 +17,7 @@ export class LoginComponent {
   onLogin() {
     this.authService.login(this.correo, this.contrase).subscribe(
       () => {
-        this.router.navigate(['/']); // Navega a la página principal o a donde desees
+        window.location.href = '/';
       },
       (error) => {
         this.error = 'Credenciales inválidas';

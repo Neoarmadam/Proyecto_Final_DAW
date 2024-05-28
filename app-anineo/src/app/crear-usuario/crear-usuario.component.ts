@@ -11,6 +11,7 @@ export class CrearUsuarioComponent {
   nombre: string ='';
   correo: string = '';
   contrase: string = '';
+  administrador: number= 0;
   error: string = '';
 
   constructor(private authService: UsuariosService, private router: Router) {}
@@ -18,11 +19,23 @@ export class CrearUsuarioComponent {
   onLogin() {
     this.authService.login(this.correo, this.contrase).subscribe(
       () => {
-        this.router.navigate(['/']); // Navega a la página principal o a donde desees
+        window.location.href = '/';
       },
       (error) => {
         this.error = 'Credenciales inválidas';
       }
     );
   }
+
+  crearLogin(){
+    this.authService.crearUsuario(this.nombre, this.correo, this.contrase).subscribe(
+      () => {
+        this.onLogin();
+      },
+      (error) => {
+        this.error = 'Error creando el usuario';
+      }
+    );
+  }
+
 }

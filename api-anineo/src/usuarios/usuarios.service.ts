@@ -14,10 +14,10 @@ export class UsuariosService {
     ){}
 
     async createUsuario(usuario: CreateUsuarioDto){
+        const { correo, nombre } = usuario;
+        
         const usuarioExist= await this.usuarioRepository.findOne({
-            where: {
-                nombre: usuario.nombre
-            }
+            where: [{ correo }, { nombre }],
         })
         if(usuarioExist){
             return new HttpException('El usuario ya existe', HttpStatus.CONFLICT);
@@ -48,5 +48,5 @@ export class UsuariosService {
           throw new UnauthorizedException('Credenciales no validas');
         }
         return usuario;
-      }
+    }
 }

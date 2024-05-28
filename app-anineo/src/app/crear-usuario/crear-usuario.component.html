@@ -4,7 +4,7 @@
     <div class="card" style="width: 24rem;">
         <div class="card-body bg-dark">
             <h5 class="card-title text-center mb-4">Crear Cuenta</h5>
-            <form (ngSubmit)="onLogin()">
+            <form (ngSubmit)="crearLogin()">
                 <div class="mb-3">
                     <label for="nombre" class="form-label">Nombre de Cuenta</label>
                     <input type="nombre" class="form-control" id="nombre" placeholder="Juan" [(ngModel)]="nombre" name="nombre" required>
@@ -22,6 +22,7 @@
                 <div class="d-grid">
                     <button type="submit" class="btn btn-primary">Crear Cuenta</button>
                 </div>
+                <div *ngIf="error" class="error">{{ error }}</div>
             </form>
         </div>
     </div>
