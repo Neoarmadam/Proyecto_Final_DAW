@@ -3,6 +3,7 @@ import { ActivatedRoute, Params } from '@angular/router';
 import { AnimesService } from '../animes.service';
 import { ComentariosService } from '../comentarios.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { UsuariosService } from '../usuarios.service';
 
 @Component({
   selector: 'app-anime',
@@ -22,13 +23,16 @@ export class AnimeComponent {
     tipo: true,
     comentario: ''
   };
+  usuario:any;
 
   constructor(
     private route: ActivatedRoute,
     private animeService:AnimesService,
     private comentariosService:ComentariosService,
-    private http: HttpClient
+    private http: HttpClient,
+    private usuariosService:UsuariosService
   ) {
+    this.recuperarUsuario();
     this.route.params.subscribe((params: Params) => {
       this.animeId = params['id'];
       this.findOneAnime(this.animeId);
@@ -42,6 +46,10 @@ export class AnimeComponent {
     this.animeService.findOne(id).subscribe(response => {
       this.anime=response;
     });
+  }
+
+  recuperarUsuario(){
+    this.usuario=this.usuariosService.getUsuario();
   }
 
   findComentarios(id:number){
@@ -70,6 +78,7 @@ export class AnimeComponent {
   submitForm() {
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
     this.comentario.anime = this.animeId;
+    this.comentario.usuario=this.usuario.nombre;
     this.http.post("http://localhost:3000/comentarios", this.comentario, { headers })
       .subscribe(
         response => {
