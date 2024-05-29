@@ -51,4 +51,9 @@ export class UsuariosService {
       })
     );
   }
+
+  getUsuarios(){
+    
+  }
+
 }

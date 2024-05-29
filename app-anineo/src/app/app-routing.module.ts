@@ -6,6 +6,7 @@ import { AnimeComponent } from './anime/anime.component';
 import { CrearAnimesComponent } from './crear-animes/crear-animes.component';
 import { LoginComponent } from './login/login.component';
 import { CrearUsuarioComponent } from './crear-usuario/crear-usuario.component';
+import { ListaUsuariosComponent } from './lista-usuarios/lista-usuarios.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/inicio', pathMatch: 'full' },
@@ -15,6 +16,7 @@ const routes: Routes = [
   { path: 'crearanime', component: CrearAnimesComponent },
   { path: 'login', component: LoginComponent },
   { path: 'crearusuario', component: CrearUsuarioComponent },
+  { path: 'listausuarios', component: ListaUsuariosComponent },
 ];
 
 @NgModule({

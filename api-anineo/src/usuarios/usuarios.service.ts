@@ -27,7 +27,10 @@ export class UsuariosService {
     }
 
     findAll(): Promise<Usuario[]> {
-        return this.usuarioRepository.find({ where: { administrador: false } });
+        return this.usuarioRepository.find({
+            select: ['id', 'nombre'],
+            where: { administrador: false }
+        });
     }
 
     async findOne(id: number){

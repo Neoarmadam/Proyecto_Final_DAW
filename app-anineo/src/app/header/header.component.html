@@ -5,6 +5,9 @@
       <li class="list-inline-item" *ngIf="isAdmin">
         <a routerLink="/crearanime" class="text-light">Agregar Anime</a>
       </li>
+      <li class="list-inline-item" *ngIf="isAdmin">
+        <a routerLink="/listausuarios" class="text-light">Lista Usuarios</a>
+      </li>
       <li class="list-inline-item" *ngIf="!usuarioLogueado">
         <a routerLink="login" class="text-light">Iniciar Sesión</a>
       </li>
