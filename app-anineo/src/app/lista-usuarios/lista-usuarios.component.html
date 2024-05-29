@@ -1,1 +1,19 @@
-<p>lista-usuarios works!</p>
+<br>
+
+<!--Impresion de cards con los datos de los Usuarios-->
+<div class="container mt-5">
+    <div class="row">
+      @for(usuario of usuarios; track $index){
+        <div class="col-md-4 mb-4">
+          <div class="card h-100 bg-dark">
+            <div class="card-body d-flex flex-column justify-content-between">
+              <div class="mb-4">
+                <h3>{{ usuario.nombre }}</h3>
+                <button class="btn btn-primary" (click)="deleteUsuario(usuario.id)">Eliminar</button>
+              </div>  
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+  </div>

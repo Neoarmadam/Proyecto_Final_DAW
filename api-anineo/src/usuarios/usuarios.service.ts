@@ -1,4 +1,4 @@
-import { HttpException, HttpStatus, Injectable, UnauthorizedException } from '@nestjs/common';
+import { HttpException, HttpStatus, Injectable, NotFoundException, UnauthorizedException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Usuario } from './usuario.entity';
 import { Repository } from 'typeorm';
@@ -52,4 +52,12 @@ export class UsuariosService {
         }
         return usuario;
     }
+
+    async deleteById(id: number): Promise<void> {
+        const result = await this.usuarioRepository.delete(id);
+        if (result.affected === 0) {
+            throw new NotFoundException(`Usuario con ID ${id} no encontrado`);
+        }
+    }
+
 }

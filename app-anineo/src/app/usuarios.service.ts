@@ -15,7 +15,7 @@ export class UsuariosService {
     const usuario = localStorage.getItem('usuario');
     this.usuarioLogueadoSubject = new BehaviorSubject<boolean>(!!usuario);
     this.usuarioLogueado$ = this.usuarioLogueadoSubject.asObservable();
-   }
+  }
 
   login(correo: string, contraseña: string): Observable<any> {
     return this.http.post<any>(this.apiUrl+"/login", { correo, contraseña }).pipe(
@@ -52,8 +52,12 @@ export class UsuariosService {
     );
   }
 
-  getUsuarios(){
-    
+  findAll() {
+    return this.http.get<any[]>(this.apiUrl);
+  }
+
+  deleteUsuario(id: number) {
+    return this.http.delete<any>(`${this.apiUrl}/${id}`);
   }
 
 }
