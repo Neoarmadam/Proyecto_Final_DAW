@@ -15,6 +15,7 @@ import { AnimeComponent } from './anime/anime.component';
 import { CrearAnimesComponent } from './crear-animes/crear-animes.component';
 import { LoginComponent } from './login/login.component';
 import { CrearUsuarioComponent } from './crear-usuario/crear-usuario.component';
+import { ListaUsuariosComponent } from './lista-usuarios/lista-usuarios.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { CrearUsuarioComponent } from './crear-usuario/crear-usuario.component';
     AnimeComponent,
     CrearAnimesComponent,
     LoginComponent,
-    CrearUsuarioComponent
+    CrearUsuarioComponent,
+    ListaUsuariosComponent
   ],
   imports: [
     BrowserModule,
