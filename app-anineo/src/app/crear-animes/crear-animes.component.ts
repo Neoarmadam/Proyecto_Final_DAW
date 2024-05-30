@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { GenerosService } from '../generos.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { UsuariosService } from '../usuarios.service';
 
 @Component({
   selector: 'app-crear-animes',
@@ -17,11 +18,15 @@ export class CrearAnimesComponent {
     imagen:"",
     genero:null
   }
+  usuarioLogueado: boolean = false;
+  isAdmin: boolean = false;
 
   constructor(
     private generosService:GenerosService,
-    private http: HttpClient
+    private http: HttpClient,
+    private usuariosService:UsuariosService
   ){
+    this.logeado()
     this.findAllGeneros();
   }
 
@@ -59,6 +64,17 @@ export class CrearAnimesComponent {
       anio:null,
       imagen:"",
       genero:null
+    }
+  }
+
+  logeado(){
+    const usuario = this.usuariosService.getUsuario();
+    this.isAdmin = usuario ? usuario.administrador : false;
+    this.usuariosService.usuarioLogueado$.subscribe(logueado => {
+      this.usuarioLogueado = logueado;
+    });
+    if(this.usuarioLogueado==false || this.isAdmin==false){
+      window.location.href = '/login';
     }
   }
 }

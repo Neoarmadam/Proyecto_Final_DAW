@@ -27,8 +27,9 @@ export class UsuariosController {
         return this.usuariosService.loginUsuario(loginUsuarioDto);
     }
 
-    @Delete(':id')
-    async deleteById(@Param('id', ParseIntPipe) id: number): Promise<void> {
-        await this.usuariosService.deleteById(id);
+    @Delete("/borrar/:id")
+    deleteById(@Param('id', ParseIntPipe) id: number) {
+        console.log(id);
+        //await this.usuariosService.deleteById(id);
     }
 }

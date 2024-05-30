@@ -8,6 +8,8 @@ import { UsuariosService } from '../usuarios.service';
 })
 export class ListaUsuariosComponent {
   usuarios:any[]=[];
+  usuarioLogueado: boolean = false;
+  isAdmin: boolean = false;
 
   constructor(
     private usuariosService:UsuariosService
@@ -26,6 +28,18 @@ export class ListaUsuariosComponent {
   }
 
   deleteUsuario(id:number){
+    console.log("David:"+id)
     this.usuariosService.deleteUsuario(id);
+  }
+
+  logeado(){
+    const usuario = this.usuariosService.getUsuario();
+    this.isAdmin = usuario ? usuario.administrador : false;
+    this.usuariosService.usuarioLogueado$.subscribe(logueado => {
+      this.usuarioLogueado = logueado;
+    });
+    if(this.usuarioLogueado==false || this.isAdmin==false){
+      window.location.href = '/login';
+    }
   }
 }

@@ -24,6 +24,7 @@ export class AnimeComponent {
     comentario: ''
   };
   usuario:any;
+  usuarioLogueado: boolean = false;
 
   constructor(
     private route: ActivatedRoute,
@@ -32,6 +33,7 @@ export class AnimeComponent {
     private http: HttpClient,
     private usuariosService:UsuariosService
   ) {
+    this.logeado();
     this.recuperarUsuario();
     this.route.params.subscribe((params: Params) => {
       this.animeId = params['id'];
@@ -102,4 +104,14 @@ export class AnimeComponent {
       comentario: ''
     };
   }
+
+  logeado(){
+    this.usuariosService.usuarioLogueado$.subscribe(logueado => {
+      this.usuarioLogueado = logueado;
+    });
+    if(this.usuarioLogueado==false){
+      window.location.href = '/login';
+    }
+  }
+
 }
