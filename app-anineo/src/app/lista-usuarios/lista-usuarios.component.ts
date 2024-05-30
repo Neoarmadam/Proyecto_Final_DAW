@@ -19,6 +19,7 @@ export class ListaUsuariosComponent {
 
   findUsuarios(){
     this.usuariosService.findAll().subscribe(response => {
+      
       if (Array.isArray(response)) {
         this.usuarios=response;
       } else {
@@ -29,7 +30,10 @@ export class ListaUsuariosComponent {
 
   deleteUsuario(id:number){
     console.log("David:"+id)
-    this.usuariosService.deleteUsuario(id);
+    this.usuariosService.deleteUsuario(id).subscribe(response => {
+      console.log(response);
+    });
+    this.findUsuarios();
   }
 
   logeado(){

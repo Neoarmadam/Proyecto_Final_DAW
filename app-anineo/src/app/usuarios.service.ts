@@ -57,8 +57,8 @@ export class UsuariosService {
   }
 
   deleteUsuario(id: number) {
-    console.log(id);
-    return this.http.get<any>(this.apiUrl+"/borrar/"+id);
+    console.log('servicio: '+id);
+    return this.http.delete(this.apiUrl+"/"+id);
   }
 
 }
