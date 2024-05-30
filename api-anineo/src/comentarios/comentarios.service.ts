@@ -116,4 +116,8 @@ export class ComentariosService {
   async findAllAnime(animeId: number) {
     return await this.comentarioRepository.find({ where: { anime: animeId } });
   }
+
+  async deleteComentariosByUsuario(usuario: string){
+    return await this.comentarioRepository.delete({ usuario });
+  }
 }

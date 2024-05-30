@@ -29,9 +29,6 @@ export class UsuariosController {
 
     @Delete("/:id")
     async deleteById(@Param('id', ParseIntPipe) id: number) {
-       /*  if(!id) return console.error('No se ha recibido un id');
-        console.log(id); */
         await this.usuariosService.deleteById(id);
-
     }
 }

@@ -26,10 +26,12 @@ export class ComentariosController {
     return this.comentariosService.update(+id, updateComentarioDto);
   }
 
+  /* No se usa, y para que no se pise con el borrar todos los comentarios de un usuario
   @Delete(':id')
   remove(@Param('id') id: string) {
     return this.comentariosService.remove(+id);
   }
+  */
 
   @Get('/pos/:id')
   positivos(@Param('id') id: string){
@@ -44,5 +46,10 @@ export class ComentariosController {
   @Get('/anime/:id')
   findAllAnime(@Param('id') id: number) {
     return this.comentariosService.findAllAnime(id);
+  }
+
+  @Delete(':nombre')
+  remove(@Param('nombre') nombre: string) {
+    return this.comentariosService.deleteComentariosByUsuario(nombre);
   }
 }

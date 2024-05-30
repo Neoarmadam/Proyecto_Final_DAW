@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { UsuariosService } from '../usuarios.service';
+import { ComentariosService } from '../comentarios.service';
 
 @Component({
   selector: 'app-lista-usuarios',
@@ -12,7 +13,8 @@ export class ListaUsuariosComponent {
   isAdmin: boolean = false;
 
   constructor(
-    private usuariosService:UsuariosService
+    private usuariosService:UsuariosService,
+    private comentariosService:ComentariosService
   ){
     this.findUsuarios();
   }
@@ -28,12 +30,18 @@ export class ListaUsuariosComponent {
     });
   }
 
-  deleteUsuario(id:number){
-    console.log("David:"+id)
+  deleteUsuario(id:number, nombre:string){
     this.usuariosService.deleteUsuario(id).subscribe(response => {
       console.log(response);
-    });
-    this.findUsuarios();
+      this.findUsuarios();
+      this.deleteComentariosUsuarios(nombre);
+    }); 
+  }
+
+  deleteComentariosUsuarios(nombre:string){
+    this.comentariosService.deleteComentariosUsuario(nombre).subscribe(response => {
+      console.log(response);
+    }); 
   }
 
   logeado(){

@@ -8,7 +8,7 @@ export class ComentariosService {
 
   private urlApi = "http://localhost:3000/comentarios";
 
-  constructor(private http: HttpClient) { }
+  constructor(private http:HttpClient) { }
 
   findAllAnime(anime:number) {
     return this.http.get<any[]>(this.urlApi+'/anime/'+anime);
@@ -20,6 +20,10 @@ export class ComentariosService {
 
   findNegAnime(anime:number) {
     return this.http.get<any[]>(this.urlApi+'/neg/'+anime);
+  }
+
+  deleteComentariosUsuario(nombre:string) {
+    return this.http.delete(this.urlApi+"/"+nombre);
   }
 
 }
