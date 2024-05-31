@@ -61,11 +61,11 @@ export class ComentariosService {
   }
 
   /**
-   * Metodo que elimina un anime pasando su Id.
+   * Metodo que elimina un comentario pasando su Id.
    * @param id 
    * @returns 
    */
-  async remove(id: number) {
+  async removeById(id: number) {
     const comentarioExist= await this.comentarioRepository.findOneBy({ id });
     if(!comentarioExist){
       return new HttpException('Comentario Inexistente', HttpStatus.NOT_FOUND);
@@ -117,7 +117,7 @@ export class ComentariosService {
     return await this.comentarioRepository.find({ where: { anime: animeId } });
   }
 
-  async deleteComentariosByUsuario(usuario: string){
+  async removeByUsuario(usuario: string){
     return await this.comentarioRepository.delete({ usuario });
   }
 }
