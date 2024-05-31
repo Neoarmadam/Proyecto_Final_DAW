@@ -25,6 +25,8 @@ export class AnimeComponent {
   };
   usuario:any;
   usuarioLogueado: boolean = false;
+  isAdmin: boolean = false;
+  idAnime:number=0;
 
   constructor(
     private route: ActivatedRoute,
@@ -45,6 +47,7 @@ export class AnimeComponent {
   }
   
   findOneAnime(id:number){
+    this.idAnime=id;
     this.animeService.findOne(id).subscribe(response => {
       this.anime=response;
     });
@@ -109,9 +112,17 @@ export class AnimeComponent {
     this.usuariosService.usuarioLogueado$.subscribe(logueado => {
       this.usuarioLogueado = logueado;
     });
+    const usuario = this.usuariosService.getUsuario();
+    this.isAdmin = usuario ? usuario.administrador : false;
     if(this.usuarioLogueado==false){
       window.location.href = '/login';
     }
   }
 
+  borrarComentario(id:number){
+    this.comentariosService.deleteComentarioId(id).subscribe(response => {
+      console.log(response);
+      this.findComentarios(this.idAnime);
+    }); 
+  }
 }

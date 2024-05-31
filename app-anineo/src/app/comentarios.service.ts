@@ -23,7 +23,11 @@ export class ComentariosService {
   }
 
   deleteComentariosUsuario(nombre:string) {
-    return this.http.delete(this.urlApi+"/"+nombre);
+    return this.http.delete(this.urlApi+"/usuario/"+nombre);
   }
 
+  deleteComentarioId(id:number){
+    return this.http.delete(this.urlApi+"/id/"+id);
+  }
+  
 }
