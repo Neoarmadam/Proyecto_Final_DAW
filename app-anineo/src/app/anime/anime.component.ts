@@ -125,4 +125,10 @@ export class AnimeComponent {
       this.findComentarios(this.idAnime);
     }); 
   }
+
+  borrarAnime(id:number){
+    this.animeService.deleteAnimeId(id).subscribe(response => {
+      window.location.href = '/';
+    }); 
+  }
 }

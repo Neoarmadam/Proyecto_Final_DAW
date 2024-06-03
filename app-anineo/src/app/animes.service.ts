@@ -21,4 +21,8 @@ export class AnimesService {
   findOne(id:number){
     return this.http.get<any[]>(this.urlApi+"/"+id);
   }
+
+  deleteAnimeId(id:number){
+    return this.http.delete(this.urlApi+"/"+id);
+  }
 }
