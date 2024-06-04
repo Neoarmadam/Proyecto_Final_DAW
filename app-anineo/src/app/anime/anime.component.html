@@ -21,6 +21,7 @@
                 <p class="card-text">Año: {{anime.anio}}</p>
                 <p class="card-text">Valor positivos: {{positivos}}</p>
                 <p class="card-text">Valor negativos: {{negativos}}</p>
+                <button class="btn btn-primary" [routerLink]="['/editaranime', anime.id]" *ngIf="isAdmin">Editar</button>
                 <button class="btn btn-primary" (click)="borrarAnime(anime.id)" *ngIf="isAdmin">Eliminar</button>
               </div>
             </div>

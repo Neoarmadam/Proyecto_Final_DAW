@@ -131,4 +131,8 @@ export class AnimeComponent {
       window.location.href = '/';
     }); 
   }
+
+  editarAnime(id:number){
+    window.location.href = '/editaranime/'+id;
+  }
 }

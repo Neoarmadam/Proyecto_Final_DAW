@@ -1,0 +1,47 @@
+<br>
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <div class="card bg-dark">
+          <div class="card-header">
+            Editar Anime
+          </div>
+          <div class="card-body bg-dark">
+            <form (ngSubmit)="submitForm()">
+              <div class="mb-3">
+                <label for="nombre" class="form-label">Nombre</label>
+                <input type="text" class="form-control" id="nombre" name="nombre" [(ngModel)]="nuevoAnime.nombre" required>
+              </div>
+              <div class="mb-3">
+                <label for="descripcion" class="form-label">Descripción</label>
+                <textarea class="form-control" id="descripcion" name="descripcion" rows="3" [(ngModel)]="nuevoAnime.descripcion"></textarea>
+              </div>
+              <div class="mb-3 form-check">
+                <input type="checkbox" class="form-check-input" id="enEmision" name="enEmision" [(ngModel)]="nuevoAnime.enEmision">
+                <label class="form-check-label" for="enEmision">En Emisión</label>
+              </div>
+              <div class="mb-3">
+                <label for="anio" class="form-label">Año</label>
+                <input type="number" class="form-control" id="anio" name="anio" [(ngModel)]="nuevoAnime.anio" required>
+              </div>
+              <div class="mb-3">
+                <label for="imagen" class="form-label">URL de la Imagen</label>
+                <input type="text" class="form-control" id="imagen" name="imagen" [(ngModel)]="nuevoAnime.imagen" required>
+              </div>
+              <div class="mb-3">
+                <label for="genero" class="form-label">Género</label>
+                <select class="form-select" id="genero" name="genero" [(ngModel)]="nuevoAnime.genero" required>
+                  @for(genero of generos; track $index){
+                    <option [value]="genero.id">{{genero.nombre}}</option>
+                  }
+                </select>
+              </div>
+              <button type="submit" class="btn btn-primary">Editar Anime</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

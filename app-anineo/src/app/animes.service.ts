@@ -1,5 +1,6 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -25,4 +26,10 @@ export class AnimesService {
   deleteAnimeId(id:number){
     return this.http.delete(this.urlApi+"/"+id);
   }
+
+  updateAnime(id: number, anime: any): Observable<any> {
+    const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+    return this.http.put<any>(this.urlApi+"/"+id, anime, { headers });
+  }
+
 }
