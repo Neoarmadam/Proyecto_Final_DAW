@@ -9,10 +9,12 @@ import { UsuariosService } from '../usuarios.service';
 export class HeaderComponent {
   usuarioLogueado: boolean = false;
   isAdmin: boolean = false;
+  nombreUsuario:string="";
 
   constructor(private authService: UsuariosService) {
       const usuario = this.authService.getUsuario();
       this.isAdmin = usuario ? usuario.administrador : false;
+      this.nombreUsuario=usuario ?usuario.nombre: "false";
   }
 
   ngOnInit() {
