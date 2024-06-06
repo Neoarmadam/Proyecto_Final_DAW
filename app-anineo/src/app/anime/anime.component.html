@@ -58,7 +58,7 @@
               <h5 class="card-title">{{ comentario.usuario }}</h5>
               <p class="card-text">{{ comentario.comentario }}</p>
               <p class="card-text">{{ comentario.tipo ? 'Positivo' : 'Negativo' }}</p>
-              <button class="btn btn-primary" (click)="borrarComentario(comentario.anime)" *ngIf="isAdmin">Eliminar</button>
+              <button class="btn btn-primary" (click)="borrarComentario(comentario.id)" *ngIf="isAdmin">Eliminar</button>
             </div>
           </div>
         </div>

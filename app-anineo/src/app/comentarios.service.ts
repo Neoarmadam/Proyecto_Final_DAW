@@ -27,6 +27,7 @@ export class ComentariosService {
   }
 
   deleteComentarioId(id:number){
+    console.log(id)
     return this.http.delete(this.urlApi+"/id/"+id);
   }
   

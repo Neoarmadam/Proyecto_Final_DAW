@@ -29,7 +29,7 @@ export class AnimesService {
 
   updateAnime(id: number, anime: any): Observable<any> {
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
-    return this.http.put<any>(this.urlApi+"/"+id, anime, { headers });
+    return this.http.patch<any>(this.urlApi+"/"+id, anime, { headers });
   }
 
 }
