@@ -121,7 +121,6 @@ export class AnimeComponent {
 
   borrarComentario(id:number){
     this.comentariosService.deleteComentarioId(id).subscribe(response => {
-      console.log(response);
       this.findComentarios(this.idAnime);
     }); 
   }

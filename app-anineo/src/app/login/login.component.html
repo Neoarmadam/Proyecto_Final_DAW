@@ -7,7 +7,7 @@
             <form (ngSubmit)="onLogin()">
                 <div class="mb-3">
                     <label for="correo" class="form-label">Correo Electrónico</label>
-                    <input type="correo" class="form-control" id="correo" placeholder="correo@ejemplo.com" [(ngModel)]="correo" name="correo" required>
+                    <input type="correo" class="form-control" id="correo" placeholder="correo@ejemplo.com" [(ngModel)]="correo" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" name="correo" required>
                 </div>
 
                 <div class="mb-3">

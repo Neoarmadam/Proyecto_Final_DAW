@@ -17,3 +17,8 @@ button {
 button:hover {
     background-color: palevioletred; /* Nuevo color */
 }
+
+.error-message {
+    color: red;
+    font-size: 0.9em;
+  }
