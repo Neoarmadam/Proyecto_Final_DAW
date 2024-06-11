@@ -28,7 +28,6 @@ export class ComentariosController {
 
   @Delete('id/:id')
   removeById(@Param('id') id: number) {
-    
     return this.comentariosService.removeById(id);
   }
 
