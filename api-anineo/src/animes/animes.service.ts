@@ -69,6 +69,8 @@ export class AnimesService {
     }else{
       anime.nombre = createAnimeDto.nombre;
       anime.descripcion = createAnimeDto.descripcion;
+      anime.anio=createAnimeDto.anio;
+      anime.imagen=createAnimeDto.imagen;
       return this.animeRepository.save(anime);
     }
   }

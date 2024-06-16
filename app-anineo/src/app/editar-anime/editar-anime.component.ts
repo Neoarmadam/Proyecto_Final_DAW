@@ -52,6 +52,7 @@ export class EditarAnimeComponent {
   }
 
   submitForm() {
+    console.log(this.nuevoAnime.anio)
     this.animeService.updateAnime(this.animeId, this.nuevoAnime).subscribe(
       response => {
         console.log('Anime enviado con éxito:', response);
